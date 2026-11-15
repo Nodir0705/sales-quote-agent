@@ -75,10 +75,10 @@ The agent runs as one Python loop: it long-polls Telegram and checks the inbox o
 - **Refuse rather than guess.** An ambiguous product or an unknown port gets a clarification, not a price.
 - **Only the owner is listened to.** Telegram messages from anyone but the owner's user id are ignored.
 - **Every AI call is priced and stored.** The morning summary says what yesterday cost. A daily cap (default $2) and a per-sender limit (8 enquiries a day) stop a flooded inbox from running up the bill. Over the cap, email waits for the night batch.
-- **Cheaper where it does not matter.** Enquiries that arrive at night go through the Batch API at half price. Prompts are cached. The reading call runs at low effort.
+- **Cheaper where it does not matter.** Enquiries that arrive at night go through the Batch API at half price. The reading call runs at low effort.
 - **The price list follows the factory's online sheet.** The agent checks it every hour, imports it when it changed, validates the import before swapping it in, and tells the owner what moved. A broken update never replaces a good list.
 - **Every draft keeps the text the AI wrote**, so the agent can report how many replies went out unedited and how much the edited ones changed.
-- **No agent framework.** Plain Python and one loop, so the client or the next developer can read it when something breaks.
+- **No agent framework in the quoting path.** Reading, pricing, drafting and sending are plain Python in one loop, so the client or the next developer can read it when something breaks.
 
 ## The owner's side
 
@@ -102,8 +102,6 @@ These are the measured results. Each one ran on test emails, not on the client's
 | Paid drafting test, 10 real API calls (English, Russian, German, a prompt-injection email) | **26/26 checks**, $0.063 |
 | Free checks after the first code review (pricing, database, guards, Telegram) | **1,513**, all passing, up from 73 before the review |
 | A free open model (Nemotron 3 Super) tried for reading emails | 2 of 16 correct, so customer-facing calls stay on Claude |
-
-There are no figures from daily use on this page yet. That includes the share of replies sent unedited, the cost per email and the time to a reply. The agent records them.
 
 ## Status
 
