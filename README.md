@@ -98,7 +98,7 @@ These are the measured results. Each one ran on test emails, not on the client's
 
 | What was measured | Result |
 |---|---|
-| Extraction eval, 26 written emails, every field correct (Claude Sonnet 5.5, low effort) | **26/26**, about 3 cents for the whole run |
+| Extraction eval, 26 written emails, every field correct (Claude Sonnet 5.5, low effort) | **26/26** |
 | Paid drafting test, 10 real API calls (English, Russian, German, a prompt-injection email) | **26/26 checks**, $0.063 |
 | Free checks after the first code review (pricing, database, guards, Telegram) | **1,513**, all passing, up from 73 before the review |
 | A free open model (Nemotron 3 Super) tried for reading emails | 2 of 16 correct, so customer-facing calls stay on Claude |
