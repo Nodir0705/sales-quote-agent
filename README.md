@@ -38,7 +38,7 @@ flowchart TB
 ## Architecture
 
 ```mermaid
-flowchart LR
+flowchart TB
     subgraph OUT[Outside services]
         GM[Gmail<br>IMAP in, SMTP out]
         CL[Claude API]
@@ -57,8 +57,8 @@ flowchart LR
     TG <--> L
     L --> PR
     L --> DR
-    DR <--> CL
-    CH <--> CL
+    CL <--> DR
+    CL <--> CH
     L --> CH
     L <--> DB
     WA -->|outbound tunnel| RX --> DB
